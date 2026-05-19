@@ -13,8 +13,7 @@ export default function Document() {
         <meta property="og:url" content="https://todayinhistory.co" />
         <link rel="icon" href="/favicon.ico" />
         
-        {/* Ad placeholder — replace with real AdSense script */}
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossOrigin="anonymous"></script> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8957440455361726" crossOrigin="anonymous"></script>
       </Head>
       <body>
         <Main />
