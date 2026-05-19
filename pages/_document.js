@@ -13,6 +13,7 @@ export default function Document() {
         <meta property="og:url" content="https://todayinhistory.co" />
         <link rel="icon" href="/favicon.ico" />
         
+        <meta name="google-site-verification" content="A7W05lF1bsVtN1SG" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8957440455361726" crossOrigin="anonymous"></script>
       </Head>
       <body>
