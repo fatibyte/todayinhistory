@@ -36,42 +36,46 @@ function AdBanner({ type }) {
   );
 }
 
-function AffiliateBox() {
+function AffiliateBox({ event }) {
+  const searchTerm = event ? encodeURIComponent(event.text.split(',')[0].split('.')[0].substring(0, 60) + ' history book') : 'history book';
+  const affiliateUrl = `https://www.amazon.com/s?k=${searchTerm}&tag=todayinhist03-20`;
   return (
-    <div style={{
-      background: '#faf8f4',
-      border: '1px solid #e8e2d6',
-      borderRadius: 6,
-      padding: '14px 16px',
-      marginTop: 10,
-      marginBottom: 6,
-      display: 'flex',
-      alignItems: 'center',
-      gap: 12,
-    }}>
-      <span style={{ fontSize: 24 }}>📚</span>
-      <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 10, color: '#8a7d6b', textTransform: 'uppercase', letterSpacing: 1.5, fontFamily: 'system-ui, sans-serif' }}>Dive Deeper</div>
-        <div style={{ fontSize: 13, color: '#3d3427', marginTop: 2 }}>
-          Explore books about this era on Amazon →
+    <a href={affiliateUrl} target="_blank" rel="noopener noreferrer nofollow" style={{ textDecoration: 'none' }}>
+      <div style={{
+        background: '#faf8f4',
+        border: '1px solid #e8e2d6',
+        borderRadius: 6,
+        padding: '14px 16px',
+        marginTop: 10,
+        marginBottom: 6,
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+      }}>
+        <span style={{ fontSize: 24 }}>📚</span>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 10, color: '#8a7d6b', textTransform: 'uppercase', letterSpacing: 1.5, fontFamily: 'system-ui, sans-serif' }}>Dive Deeper</div>
+          <div style={{ fontSize: 13, color: '#3d3427', marginTop: 2 }}>
+            Explore books about this era on Amazon →
+          </div>
+        </div>
+        <div style={{
+          background: '#c45d3e',
+          color: '#fff',
+          fontSize: 10,
+          padding: '6px 14px',
+          borderRadius: 4,
+          fontWeight: 600,
+          letterSpacing: 1,
+          textTransform: 'uppercase',
+          cursor: 'pointer',
+          fontFamily: 'system-ui, sans-serif',
+          whiteSpace: 'nowrap',
+        }}>
+          Shop
         </div>
       </div>
-      <div style={{
-        background: '#c45d3e',
-        color: '#fff',
-        fontSize: 10,
-        padding: '6px 14px',
-        borderRadius: 4,
-        fontWeight: 600,
-        letterSpacing: 1,
-        textTransform: 'uppercase',
-        cursor: 'pointer',
-        fontFamily: 'system-ui, sans-serif',
-        whiteSpace: 'nowrap',
-      }}>
-        Shop
-      </div>
-    </div>
+    </a>
   );
 }
 
@@ -290,7 +294,7 @@ export default function Home() {
                   </div>
                 </article>
 
-                {expandedEvent === i && <AffiliateBox />}
+                {expandedEvent === i && <AffiliateBox event={event} />}
                 {i === 1 && <AdBanner type="normal" />}
               </div>
             ))}
@@ -488,6 +492,9 @@ export default function Home() {
           </div>
           <div style={{ fontSize: 10, color: '#c4b89c', marginTop: 10, letterSpacing: 1, fontFamily: 'system-ui, sans-serif' }}>
             © 2026 TODAYINHISTORY.CO · ALL RIGHTS RESERVED
+          </div>
+          <div style={{ fontSize: 9, color: '#c4b89c', marginTop: 8, fontFamily: 'system-ui, sans-serif', lineHeight: 1.6 }}>
+            As an Amazon Associate, we earn from qualifying purchases.
           </div>
         </footer>
       </div>
