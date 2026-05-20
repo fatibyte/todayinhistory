@@ -112,10 +112,27 @@ export default function Home() {
   const dateStr = `${MONTHS[month - 1]} ${day}`;
   const dayOptions = Array.from({ length: getDaysInMonth(month) }, (_, i) => i + 1);
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (email && email.includes('@')) {
-      setSubscribed(true);
-      setEmail('');
+      try {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://todayinhistorydaily.beehiiv.com/subscribe';
+        form.target = '_blank';
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'email';
+        input.value = email;
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+        setSubscribed(true);
+        setEmail('');
+      } catch (e) {
+        setSubscribed(true);
+        setEmail('');
+      }
     }
   };
 
